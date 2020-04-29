@@ -1,0 +1,51 @@
+class Kruznica(object):
+    def __init__(self, radijus):
+        self.radijus = radijus
+
+    def __str__(self):
+        return "kruznica radijusa %.2f" % (self.radijus)
+
+class Kvadrat(object):
+    def __init__(self, stranica):
+        self.stranica = stranica
+
+    def __str__(self):
+        return "kvadrat stranice %.2f" % (self.stranica)
+
+if __name__ == '__main__':
+    print('*** test likovi ***')
+    kruznica = Kruznica(3)
+    kvadrat = Kvadrat(4.5)
+    print(kruznica)
+    print(kvadrat)
+    
+    
+    import likovi
+import math
+from math import pi
+
+def opseg(parametar):
+    if isinstance(parametar, likovi.Kruznica):
+        return 2 * parametar.radijus * pi
+    elif isinstance(parametar, likovi.Kvadrat):
+        return 4 * parametar.stranica
+
+def povrsina(parametar):
+    if isinstance(parametar, likovi.Kruznica):
+        return math.pow(parametar.radijus, 2) * pi
+    elif isinstance(parametar, likovi.Kvadrat):
+        return 4 * parametar.stranica
+
+if __name__ == '__main__':
+    print('*** test funkcije ***')
+    print(opseg.__name__)
+    print(povrsina.__name__)
+    
+    import likovi, funkcije
+
+k1 = likovi.Kruznica(3)
+k2 = likovi.Kvadrat(5)
+
+print('*** test program ***')
+print(k1, 'opsega', funkcije.opseg(k1), 'povrsine', funkcije.povrsina(k1))
+print(k2, 'opsega', funkcije.opseg(k2), 'povrsine', funkcije.povrsina(k2))
